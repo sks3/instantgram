@@ -14,7 +14,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
   
   
   var posts: [PFObject] = []
-  
+  var post: PFObject?
     var refreshControl: UIRefreshControl!
   
   @IBOutlet var tableView: UITableView!
@@ -64,13 +64,16 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeCell
-    cell.selectionStyle = .none
-    cell.homeCaption.text = posts[indexPath.row]["caption"] as! String?
-    cell.homeImage.file = posts[indexPath.row]["media"] as? PFFile
+    //cell.selectionStyle = .none
+    post = posts[indexPath.row]
+    cell.homeCaption.text = post!["caption"] as! String?
+    cell.homeImage.file = post!["media"] as? PFFile
+    //cell.homeCaption.text = posts[indexPath.row]["caption"] as! String?
+    //cell.homeImage.file = posts[indexPath.row]["media"] as? PFFile
     cell.homeImage.loadInBackground()
 
     //set cell selection effect
-    cell.selectionStyle = .none
+    //cell.selectionStyle = .none
     
    
     return cell
@@ -92,16 +95,22 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
   }
   
+  @IBAction func showDetailView(_ sender: Any) {
+    performSegue(withIdentifier: "detailSegue", sender: nil)
+    
+  }
   @objc func imageTapped(tapGesture: UITapGestureRecognizer) {
-    performSegue(withIdentifier: "composeSegue", sender: nil)
+    performSegue(withIdentifier: "detailSegue", sender: nil)
   }
   
   // send post to detail view controller
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- 
-      let composeViewController = segue.destination as? ComposeViewController
-    composeViewController?.posts = posts
-    
+    //let cell = sender as! UITableViewCell
+    //if let indexPath = tableView.indexPath(for: cell) {
+      //let post = posts[indexPath.row]
+      let detailViewController = segue.destination as! DetailViewController
+      detailViewController.post = post
+    //}
   }
   
   override func didReceiveMemoryWarning() {

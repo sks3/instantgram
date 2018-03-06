@@ -16,7 +16,7 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
   
   var originalImage: UIImage? = nil
   var editedImage: UIImage? = nil
-  var posts: [PFObject] = []
+
   
 
   @IBOutlet var composeImage: UIImageView!
@@ -25,7 +25,6 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
   override func viewDidLoad() {
         super.viewDidLoad()
 
-    
     
     
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGesture:)))
@@ -42,8 +41,7 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
       vc.sourceType = .photoLibrary
     }
     
-    
-    composeImage.image = UIImage(named: "image_placeholder.png")
+
 
         // Do any additional setup after loading the view.
     }
@@ -86,15 +84,5 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

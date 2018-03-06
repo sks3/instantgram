@@ -89,10 +89,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipv-T2-C7Y" customClass="PFImageView">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipv-T2-C7Y" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="306"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="2BI-Yo-KG6" appends="YES" id="zjp-o1-LDG"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qz-Yt-GBc">
                                                     <rect key="frame" x="25" y="328" width="325" height="21"/>
@@ -103,6 +106,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="homeCaption" destination="3qz-Yt-GBc" id="YPv-4b-dpk"/>
                                             <outlet property="homeImage" destination="Ipv-T2-C7Y" id="20z-4v-wKJ"/>
@@ -112,6 +116,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="wiZ-lS-8aJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="D4N-6a-tNr">
@@ -131,8 +136,60 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT6-AF-HxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2BI-Yo-KG6">
+                    <connections>
+                        <segue destination="MaP-zo-xfl" kind="presentation" identifier="detailSegue" id="YMF-iI-NB1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1658" y="157"/>
+            <point key="canvasLocation" x="1656.8" y="156.97151424287858"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="VSX-K1-zhC">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Ln-Oy-g7a" customClass="DetailViewController" customModule="Instantgram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hcK-E3-iSU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnW-2V-6F0" customClass="PFImageView">
+                                <rect key="frame" x="16" y="120" width="359" height="343"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHP-AJ-xyP">
+                                <rect key="frame" x="166" y="79" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRA-6h-drZ">
+                                <rect key="frame" x="166" y="487" width="42" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="skK-Xu-cQ7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BhX-JF-ysD">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="j6d-zI-S5H">
+                            <connections>
+                                <action selector="doneButton:" destination="8Ln-Oy-g7a" id="BA0-og-vL2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionLabel" destination="vRA-6h-drZ" id="rFa-Kc-6qw"/>
+                        <outlet property="dateLabel" destination="dHP-AJ-xyP" id="1Gs-4R-6eV"/>
+                        <outlet property="detailImage" destination="wnW-2V-6F0" id="k4T-3j-4Ap"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRU-fj-QeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2381.5999999999999" y="924.28785607196414"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="sta-hp-XgU">
@@ -218,6 +275,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syc-UW-bER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2426" y="116"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UND-l7-8Pl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MaP-zo-xfl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yhe-wV-EZ7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Ln-Oy-g7a" kind="relationship" relationship="rootViewController" id="fva-VV-nBB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uf-a7-4yY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="926"/>
         </scene>
     </scenes>
     <resources>
