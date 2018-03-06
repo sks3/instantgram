@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Parse
 
-class HomeFeedViewController: UIViewController {
+class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
+  
+  var posts: [PFObject] = []
+  
+  
+  @IBOutlet var tableView: UITableView!
   
   @IBAction func signOut(_ sender: Any) {
     NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
@@ -20,24 +26,36 @@ class HomeFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      tableView.delegate = self
+      tableView.dataSource = self
+      //tableView.rowHeight = UITableViewAutomaticDimension
+      tableView.rowHeight = 400
+      
+      // Do any additional setup after loading the view.
     }
 
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeCell
+    cell.homeCaption.text = "Here is a witty caption for this photo!"
+    cell.homeImage.image = UIImage(named: "static_img.jpg")
+    //set cell selection effect
+    cell.selectionStyle = .none
+    
+   
+    return cell
+  }
+  
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
