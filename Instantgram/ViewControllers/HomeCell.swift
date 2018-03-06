@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import ParseUI
 
 class HomeCell: UITableViewCell {
 
-  @IBOutlet var homeImage: UIImageView!
+  
+
+  @IBOutlet var homeImage: PFImageView!
   
   @IBOutlet var homeCaption: UILabel!
   

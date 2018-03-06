@@ -17,6 +17,7 @@
 		E708D6462046574200ECB33D /* InstantgramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708D6452046574200ECB33D /* InstantgramTests.swift */; };
 		E708D6512046574200ECB33D /* InstantgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708D6502046574200ECB33D /* InstantgramUITests.swift */; };
 		E7328AA3204E3671009211A9 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7328AA2204E3671009211A9 /* HomeCell.swift */; };
+		E7328AA7204E3ED2009211A9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7328AA6204E3ED2009211A9 /* Post.swift */; };
 		E79A2E3A204E103100425740 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E39204E103100425740 /* LoginViewController.swift */; };
 		E79A2E3C204E120C00425740 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E3B204E120C00425740 /* AlertView.swift */; };
 		E79A2E3E204E19C200425740 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E3D204E19C200425740 /* HomeFeedViewController.swift */; };
@@ -63,6 +64,7 @@
 		E708D6502046574200ECB33D /* InstantgramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantgramUITests.swift; sourceTree = "<group>"; };
 		E708D6522046574200ECB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7328AA2204E3671009211A9 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		E7328AA6204E3ED2009211A9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E79A2E39204E103100425740 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E79A2E3B204E120C00425740 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		E79A2E3D204E19C200425740 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		E708D62F2046574200ECB33D /* Instantgram */ = {
 			isa = PBXGroup;
 			children = (
+				E7328AA5204E3EA9009211A9 /* Models */,
 				E79A2E3F204E1F8B00425740 /* ViewControllers */,
 				E708D6302046574200ECB33D /* AppDelegate.swift */,
 				E708D6342046574200ECB33D /* Main.storyboard */,
@@ -172,6 +175,14 @@
 				E708D6522046574200ECB33D /* Info.plist */,
 			);
 			path = InstantgramUITests;
+			sourceTree = "<group>";
+		};
+		E7328AA5204E3EA9009211A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E7328AA6204E3ED2009211A9 /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E79A2E3F204E1F8B00425740 /* ViewControllers */ = {
@@ -351,11 +362,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instantgram/Pods-Instantgram-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,6 +498,7 @@
 				E79A2E41204E1F9F00425740 /* ComposeViewController.swift in Sources */,
 				E708D6312046574200ECB33D /* AppDelegate.swift in Sources */,
 				E7328AA3204E3671009211A9 /* HomeCell.swift in Sources */,
+				E7328AA7204E3ED2009211A9 /* Post.swift in Sources */,
 				E79A2E3E204E19C200425740 /* HomeFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

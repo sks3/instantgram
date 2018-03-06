@@ -89,9 +89,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipv-T2-C7Y">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipv-T2-C7Y" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="306"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qz-Yt-GBc">
                                                     <rect key="frame" x="25" y="328" width="325" height="21"/>
@@ -104,7 +105,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="homeCaption" destination="3qz-Yt-GBc" id="YPv-4b-dpk"/>
-                                            <outlet property="homeImage" destination="Ipv-T2-C7Y" id="Mon-OL-a2h"/>
+                                            <outlet property="homeImage" destination="Ipv-T2-C7Y" id="20z-4v-wKJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT6-AF-HxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1658" y="157"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="sta-hp-XgU">
@@ -141,14 +142,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Compose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahI-E8-aii">
-                                <rect key="frame" x="140" y="256" width="166" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="62s-Ia-4Tz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62s-Ia-4Tz">
                                 <rect key="frame" x="16" y="81" width="98" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -156,6 +150,13 @@
                                     <outletCollection property="gestureRecognizers" destination="0ot-0g-l4J" appends="YES" id="AKq-ll-Ydx"/>
                                 </connections>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a caption.." textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lnm-ke-LhU">
+                                <rect key="frame" x="122" y="81" width="237" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hdb-v7-ztU"/>
@@ -173,7 +174,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="composeImage" destination="62s-Ia-4Tz" id="HxR-jh-kpG"/>
+                        <outlet property="composeCaption" destination="Lnm-ke-LhU" id="ZYB-Vg-ew6"/>
+                        <outlet property="composeImage" destination="62s-Ia-4Tz" id="huK-Vc-xeE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmH-m6-HWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,7 +221,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
     </resources>
 </document>

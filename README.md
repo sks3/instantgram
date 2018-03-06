@@ -11,9 +11,9 @@ The following **required** functionality is completed:
 - [x] User can sign up to create a new account using Parse authentication (+1pt)
 - [x] User can log in and log out of his or her account (+1pt)
 - [x] The current signed in user is persisted across app restarts (+1pt)
-- [ ] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
-- [ ] User can view the last 20 posts submitted to "Instagram" (+2pt)
-- [ ] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
+- [x] User can take a photo, add a caption, and post it to "Instagram" (+2pt)
+- [x] User can view the last 20 posts submitted to "Instagram" (+2pt)
+- [x] User can pull to refresh the last 20 posts submitted to "Instagram" (+1pt)
 - [ ] User can tap a post to view post details, including timestamp and caption (+2pt)
 
 The following **stretch** features are implemented:
@@ -61,7 +61,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+This app requires a good understanding of the Parse API!  I will have to return to implement for features for this Instagram app.
 
 ## License
 

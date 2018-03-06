@@ -7,20 +7,31 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
       let vc = UIImagePickerController()
   
+  var originalImage: UIImage? = nil
+  var editedImage: UIImage? = nil
+  var posts: [PFObject] = []
+  
+
   @IBOutlet var composeImage: UIImageView!
+  @IBOutlet var composeCaption: UITextField!
   
   override func viewDidLoad() {
         super.viewDidLoad()
 
+    
+    
+    
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGesture:)))
     composeImage.isUserInteractionEnabled = true
     composeImage.addGestureRecognizer(tapGesture)
-    
+    composeImage.image = UIImage(named: "image_placeholder.png")
     vc.delegate = self
     vc.allowsEditing = true
     if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -31,6 +42,8 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
       vc.sourceType = .photoLibrary
     }
     
+    
+    composeImage.image = UIImage(named: "image_placeholder.png")
 
         // Do any additional setup after loading the view.
     }
@@ -44,11 +57,11 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
   func imagePickerController(_ picker: UIImagePickerController,
                              didFinishPickingMediaWithInfo info: [String : Any]) {
     // Get the image captured by the UIImagePickerController
-    let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-    let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+    originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+    editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
     
     // Do something with the images (based on your use case)
-    
+    composeImage.image = editedImage
     // Dismiss UIImagePickerController to go back to your original view controller
     dismiss(animated: true, completion: nil)
   }
@@ -59,6 +72,9 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)  }
   
   @IBAction func shareButton(_ sender: Any) {
+    
+    let caption = composeCaption.text as! String
+    Post.postUserImage(image: editedImage, withCaption: caption, withCompletion: nil)
         dismiss(animated: true, completion: nil)
     
   }
