@@ -15,7 +15,7 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
   
   var posts: [PFObject] = []
   var post: PFObject?
-    var refreshControl: UIRefreshControl!
+  var refreshControl: UIRefreshControl!
   
   @IBOutlet var tableView: UITableView!
   
@@ -25,33 +25,33 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     appDelegate.logOut()
   }
   
-
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      tableView.delegate = self
-      tableView.dataSource = self
-      //tableView.rowHeight = UITableViewAutomaticDimension
-      tableView.rowHeight = 400
-      
-      
-      
-      // detect tap on image
-      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGesture:)))
-      tableView.isUserInteractionEnabled = true
-      tableView.addGestureRecognizer(tapGesture)
-      
-      
-      // setup pullToRefresh control
-      refreshControl = UIRefreshControl()
-      refreshControl.addTarget(self, action: #selector
-        (HomeFeedViewController.didPullToRefresh(_:)), for: .valueChanged)
-      tableView.insertSubview(refreshControl, at: 0)
-      
-      
-      loadMessages()
-      // Do any additional setup after loading the view.
-    }
-
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.delegate = self
+    tableView.dataSource = self
+    //tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = 400
+    
+    
+    
+    // detect tap on image
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGesture:)))
+    tableView.isUserInteractionEnabled = true
+    tableView.addGestureRecognizer(tapGesture)
+    
+    
+    // setup pullToRefresh control
+    refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector
+      (HomeFeedViewController.didPullToRefresh(_:)), for: .valueChanged)
+    tableView.insertSubview(refreshControl, at: 0)
+    
+    
+    loadMessages()
+    // Do any additional setup after loading the view.
+  }
+  
   // reload movies if pulled to refresh
   @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
     loadMessages()
@@ -71,11 +71,11 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
     //cell.homeCaption.text = posts[indexPath.row]["caption"] as! String?
     //cell.homeImage.file = posts[indexPath.row]["media"] as? PFFile
     cell.homeImage.loadInBackground()
-
+    
     //set cell selection effect
     //cell.selectionStyle = .none
     
-   
+    
     return cell
   }
   
@@ -105,19 +105,24 @@ class HomeFeedViewController: UIViewController, UITableViewDelegate, UITableView
   
   // send post to detail view controller
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //let cell = sender as! UITableViewCell
-    //if let indexPath = tableView.indexPath(for: cell) {
-      //let post = posts[indexPath.row]
-      let detailViewController = segue.destination as! DetailViewController
-      detailViewController.post = post
-    //}
+    //let destinationController = segue.destination as! UINavigationController
+    //let detailViewController = destinationController.topViewController as! DetailViewController
+    
+    let detailViewController = segue.destination as! DetailViewController
+    
+    let cell = sender as! HomeCell
+    if let indexPath = tableView.indexPath(for: cell) {
+    let post = posts[indexPath.row]
+
+    detailViewController.post = post
+    }
   }
   
   override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  
+  
 }

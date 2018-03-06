@@ -82,20 +82,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCell" rowHeight="376" id="4lz-qD-C9G" customClass="HomeCell" customModule="Instantgram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="376"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCell" rowHeight="372" id="4lz-qD-C9G" customClass="HomeCell" customModule="Instantgram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="372"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="HomeCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4lz-qD-C9G" id="qo0-9j-wm3" customClass="HomeCell" customModule="Instantgram" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="371.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipv-T2-C7Y" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="306"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="2BI-Yo-KG6" appends="YES" id="zjp-o1-LDG"/>
-                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qz-Yt-GBc">
                                                     <rect key="frame" x="25" y="328" width="325" height="21"/>
@@ -110,6 +107,7 @@
                                         <connections>
                                             <outlet property="homeCaption" destination="3qz-Yt-GBc" id="YPv-4b-dpk"/>
                                             <outlet property="homeImage" destination="Ipv-T2-C7Y" id="20z-4v-wKJ"/>
+                                            <segue destination="8Ln-Oy-g7a" kind="show" identifier="detailSegue" id="MUp-jf-Q6M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -136,11 +134,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT6-AF-HxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="2BI-Yo-KG6">
-                    <connections>
-                        <segue destination="MaP-zo-xfl" kind="presentation" identifier="detailSegue" id="YMF-iI-NB1"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1656.8" y="156.97151424287858"/>
         </scene>
@@ -189,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRU-fj-QeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.5999999999999" y="924.28785607196414"/>
+            <point key="canvasLocation" x="1657" y="879"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="sta-hp-XgU">
@@ -275,24 +268,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syc-UW-bER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2426" y="116"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UND-l7-8Pl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MaP-zo-xfl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yhe-wV-EZ7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8Ln-Oy-g7a" kind="relationship" relationship="rootViewController" id="fva-VV-nBB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0uf-a7-4yY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1657" y="926"/>
         </scene>
     </scenes>
     <resources>
