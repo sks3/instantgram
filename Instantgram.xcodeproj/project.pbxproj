@@ -11,7 +11,6 @@
 		9966479C489135C09A4953CC /* Pods_InstantgramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6469025858A6FC0ACE60B5 /* Pods_InstantgramUITests.framework */; };
 		E6621DF9BF1B5EAE4B02540D /* Pods_InstantgramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE6859FA804648542E806AE /* Pods_InstantgramTests.framework */; };
 		E708D6312046574200ECB33D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708D6302046574200ECB33D /* AppDelegate.swift */; };
-		E708D6332046574200ECB33D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708D6322046574200ECB33D /* ViewController.swift */; };
 		E708D6362046574200ECB33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E708D6342046574200ECB33D /* Main.storyboard */; };
 		E708D6382046574200ECB33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E708D6372046574200ECB33D /* Assets.xcassets */; };
 		E708D63B2046574200ECB33D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E708D6392046574200ECB33D /* LaunchScreen.storyboard */; };
@@ -19,6 +18,8 @@
 		E708D6512046574200ECB33D /* InstantgramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708D6502046574200ECB33D /* InstantgramUITests.swift */; };
 		E79A2E3A204E103100425740 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E39204E103100425740 /* LoginViewController.swift */; };
 		E79A2E3C204E120C00425740 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E3B204E120C00425740 /* AlertView.swift */; };
+		E79A2E3E204E19C200425740 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E3D204E19C200425740 /* HomeFeedViewController.swift */; };
+		E79A2E41204E1F9F00425740 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79A2E40204E1F9F00425740 /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 		DAE6859FA804648542E806AE /* Pods_InstantgramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstantgramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E708D62D2046574200ECB33D /* Instantgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instantgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E708D6302046574200ECB33D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E708D6322046574200ECB33D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E708D6352046574200ECB33D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E708D6372046574200ECB33D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E708D63A2046574200ECB33D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		E708D6522046574200ECB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E79A2E39204E103100425740 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E79A2E3B204E120C00425740 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		E79A2E3D204E19C200425740 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		E79A2E40204E1F9F00425740 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,13 +143,12 @@
 		E708D62F2046574200ECB33D /* Instantgram */ = {
 			isa = PBXGroup;
 			children = (
+				E79A2E3F204E1F8B00425740 /* ViewControllers */,
 				E708D6302046574200ECB33D /* AppDelegate.swift */,
-				E708D6322046574200ECB33D /* ViewController.swift */,
 				E708D6342046574200ECB33D /* Main.storyboard */,
 				E708D6372046574200ECB33D /* Assets.xcassets */,
 				E708D6392046574200ECB33D /* LaunchScreen.storyboard */,
 				E708D63C2046574200ECB33D /* Info.plist */,
-				E79A2E39204E103100425740 /* LoginViewController.swift */,
 				E79A2E3B204E120C00425740 /* AlertView.swift */,
 			);
 			path = Instantgram;
@@ -169,6 +170,16 @@
 				E708D6522046574200ECB33D /* Info.plist */,
 			);
 			path = InstantgramUITests;
+			sourceTree = "<group>";
+		};
+		E79A2E3F204E1F8B00425740 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E79A2E3D204E19C200425740 /* HomeFeedViewController.swift */,
+				E79A2E39204E103100425740 /* LoginViewController.swift */,
+				E79A2E40204E1F9F00425740 /* ComposeViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,8 +479,9 @@
 			files = (
 				E79A2E3A204E103100425740 /* LoginViewController.swift in Sources */,
 				E79A2E3C204E120C00425740 /* AlertView.swift in Sources */,
-				E708D6332046574200ECB33D /* ViewController.swift in Sources */,
+				E79A2E41204E1F9F00425740 /* ComposeViewController.swift in Sources */,
 				E708D6312046574200ECB33D /* AppDelegate.swift in Sources */,
+				E79A2E3E204E19C200425740 /* HomeFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

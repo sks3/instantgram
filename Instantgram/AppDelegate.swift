@@ -13,9 +13,15 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
-
+  
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
+      print("Logout notification received")
+      // TODO: Logout the User
+      // TODO: Load and show the login view controller
+    }
     
     Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
       configuration.applicationId = "instantgram"
@@ -23,9 +29,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       configuration.server = "https://afternoon-hamlet-98620.herokuapp.com/parse"
     }))
     
-    
-    // Override point for customization after application launch.
+    if PFUser.current() != nil {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      // view controller currently being set in Storyboard as default will be overridden
+      window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "homeFeedViewController")
+    }
     return true
+  }
+  
+  func logOut() {
+    // Logout the current user
+    PFUser.logOutInBackground(block: { (error) in
+      if let error = error {
+        print(error.localizedDescription)
+      } else {
+        print("User logged out successfully")
+        // Load and show the login view controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        self.window?.rootViewController = loginViewController
+      }
+    })
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
