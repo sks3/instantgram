@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
+      configuration.applicationId = "instantgram"
+      configuration.clientKey = "Akr399gAJgp3kjF39gkg0"
+      configuration.server = "https://afternoon-hamlet-98620.herokuapp.com/parse"
+    }))
+    
+    
     // Override point for customization after application launch.
     return true
   }
